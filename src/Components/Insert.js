@@ -47,11 +47,16 @@ export default function Insert() {
       first_name: insData.first_name,
       password: insData.password,
     };
-    axios
-      .post("http://localhost/react/you-app/insert.php", sendData)
-      .then((res) => console.log(res.data));
-  };
+    console.log(sendData)
 
+    axios.post('http://localhost/react/you-app/insert.php', sendData)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
   return (
     <>
       <h1>Welcome To Insert Component!!</h1>
