@@ -10,6 +10,7 @@ import {
 import Insert from "./Components/Insert";
 import Edit from "./Components/Edit";
 import View from "./Components/View";
+import Test from "./Components/Test";
 
 const preventDefault = (event) => event.preventDefault();
 
@@ -29,7 +30,7 @@ export default function UnderlineLink() {
       onClick={preventDefault}
     >
       <Router>
-        <Link to="/" underline="hover">
+        <Link to="/Test" underline="hover">
           Home
         </Link>
         <Link to="/view" underline="hover">
@@ -44,6 +45,7 @@ export default function UnderlineLink() {
         <hr style={{width:"100%"}}/>
         <Routes>
           <Route exact path="/insert" Component={Insert} />
+          <Route path="/test" Component={Test} />
           <Route path="/edit" Component={Edit} />
           <Route path="/view" Component={View} />
         </Routes>

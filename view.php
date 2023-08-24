@@ -1,6 +1,5 @@
 <?php
-header("Access-Control-Allow_Origin:*");
-    echo '<script>consol.log("hi")</script>';
+header("Access-Control-Allow-Origin:*");
 
 $servername = "localhost";
 $username = "root";

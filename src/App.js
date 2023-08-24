@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <UnderlineLink className="header" />
-      <header className="App-header">
-      </header>
+      {/* <header className="App-header">
+      </header> */}
     </div>
   );
 }
