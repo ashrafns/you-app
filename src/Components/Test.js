@@ -64,6 +64,12 @@ export default function Test() {
     setExpanded(!expanded);
   };
   // -----------------------------
+  function Favorite(){
+    alert("hi")
+  }
+  function Share(){
+    alert("hi")
+  }
   return (
     <Grid container spacing={2}>
       <Grid item xs={4}></Grid>
@@ -102,10 +108,10 @@ export default function Test() {
             </CardContent>
             <CardActions disableSpacing>
               <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
+                <FavoriteIcon onClick={Favorite}/>
               </IconButton>
               <IconButton aria-label="share">
-                <ShareIcon />
+                <ShareIcon onClick={Share}/>
               </IconButton>
               <ExpandMore
                 expand={expanded}
