@@ -36,20 +36,17 @@ export default function Insert() {
   //       };
   //       console.log(obj)
   //   }
-  const [insData, setInsData] = useState({
-    first_name: "",
-    password: "",
-  });
+  const [inputs, setInputs] = useState({});
 
   const submitForm = (e) => {
     e.preventDefault();
-    const sendData = {
-      first_name: insData.first_name,
-      password: insData.password,
-    };
-    console.log(sendData)
+    // const sendData = {
+    //   first_name: inputs.first_name,
+    //   password: inputs.password,
+    // };
+    // console.log(sendData)
 
-    axios.post('http://localhost/react/you-app/insert.php', sendData)
+    axios.post('http://localhost/react/you-app/insert.php', inputs)
     .then(function (response) {
       console.log(response);
     })
@@ -77,9 +74,9 @@ export default function Insert() {
         <TextField
           style={{ width: "100%" }}
           id="outlined-basic"
-          value={insData.first_name}
+          value={inputs.firstName}
           onChange={(e) => {
-            setInsData({ ...insData, first_name: e.target.value });
+            setInputs({ ...inputs, firstName: e.target.value });
           }}
           label="User Name"
           variant="outlined"
@@ -87,9 +84,9 @@ export default function Insert() {
         <TextField
           style={{ width: "100%" }}
           id="outlined-basic"
-          value={insData.password}
+          value={inputs.password}
           onChange={(e) => {
-            setInsData({ ...insData, password: e.target.value });
+            setInputs({ ...inputs, password: e.target.value });
           }}
           label="Password"
           variant="outlined"
