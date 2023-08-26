@@ -25,20 +25,33 @@ $request = json_decode( file_get_contents('php://input') );
 
 if(isset($request)){
 
-  $sql = "INSERT INTO user(id,firstName,lastName,email,password,profileImage,registerDate) values (null, :firstName, :lastName, :email, :password, :profileImage, :registerDate)";
+  // $sql = "INSERT INTO user(id,firstName,lastName,email,password,profileImage,registerDate) values (null, :firstName, :lastName, :email, :password, :profileImage, :registerDate)";
+  $sql = "INSERT INTO `user` (`userID`, `firstName`, `lastName`, `email`, `password`, `profileImage`, `registerDate`) VALUES (NULL, 'fdghdtf', 'sgsdths', 'dhyjh', 'dtherth', 'sbhshsdhshs', current_timestamp())";
   $stmt = $conn->prepare($sql);
-  $stmt->bindParam(':firstName', $request->firstName);
-  $stmt->bindParam(':lastName', $request->lastName);
-  $stmt->bindParam(':email', $request->email);
-  $stmt->bindParam(':password', $request->password);
-  $stmt->bindParam(':profileImage', $request->profileImage);
-  $stmt->bindParam(':registerDate', $request->registerDate);
+  $registerDate = date("Y-m-d");
+  $stmt->bind_param('ssssss',
+   $request->firstName, 
+   $request->lastName, 
+   $request->email, 
+   $request->password, 
+   $request->profileImage, 
+   $request->registerDate);
 
-  if($stmt->execute()) {
-    $response = ['status' => 1, 'message' => 'Record created successfully.'];
-} else {
-    $response = ['status' => 0, 'message' => 'Failed to create record.'];
-}
+  if($stmt->execute()){
+    $response = ["status" => 1, "message" => 'recored created successfully.'];
+  } else {
+    $response = ["status" => 0, "message" => 'recored creation failed.'];
+  }
 }
 
 ?>
+<!-- if(isset($request)){
+  $sql = "INSERT INTO user(firstName, lastName, email, password, profileImage, registerDate) VALUES (?, ?, ?, ?, ?, ?)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param('ssssss', $request->firstName, $request->lastName, $request->email, $request->password, $request->profileImage, $request->registerDate);
+  if($stmt->execute()){
+    $response = ["status" => 1, "message" => 'recored created successfully.'];
+  } else {
+    $response = ["status" => 0, "message" => 'recored creation failed.'];
+  }
+} -->

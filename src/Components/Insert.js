@@ -84,9 +84,39 @@ export default function Insert() {
         <TextField
           style={{ width: "100%" }}
           id="outlined-basic"
+          value={inputs.lastName}
+          onChange={(e) => {
+            setInputs({ ...inputs, lastName: e.target.value });
+          }}
+          label="User Name"
+          variant="outlined"
+        />
+        <TextField
+          style={{ width: "100%" }}
+          id="outlined-basic"
+          value={inputs.email}
+          onChange={(e) => {
+            setInputs({ ...inputs, email: e.target.value });
+          }}
+          label="User Name"
+          variant="outlined"
+        />
+        <TextField
+          style={{ width: "100%" }}
+          id="outlined-basic"
           value={inputs.password}
           onChange={(e) => {
             setInputs({ ...inputs, password: e.target.value });
+          }}
+          label="User Name"
+          variant="outlined"
+        />
+        <TextField
+          style={{ width: "100%" }}
+          id="outlined-basic"
+          value={inputs.profileImage}
+          onChange={(e) => {
+            setInputs({ ...inputs, profileImage: e.target.value });
           }}
           label="Password"
           variant="outlined"
